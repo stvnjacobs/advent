@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#
+# https://adventofcode.com/2023/day/1#part1
+
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+
+while read -r line; do
+    echo "${line}" \
+        | sed -e 's/[^0-9]*//g' \
+        | awk '{ print substr($0,1,1) substr($0,length,1) }'
+done < "${SCRIPT_DIR}/input" | paste -sd+ | bc
