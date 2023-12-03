@@ -9,3 +9,34 @@ while read -r line; do
         | sed -e 's/[^0-9]*//g' \
         | awk '{ print substr($0,1,1) substr($0,length,1) }'
 done < "${SCRIPT_DIR}/input" | paste -sd+ | bc
+
+while read -r line; do
+    echo "${line}" \
+        | sed -e 's/one/1/g' \
+              -e 's/two/2/g' \
+              -e 's/three/3/g' \
+              -e 's/four/4/g' \
+              -e 's/five/5/g' \
+              -e 's/six/6/g' \
+              -e 's/seven/7/g' \
+              -e 's/eight/8/g' \
+              -e 's/nine/9/g'
+#              -e 's/[^0-9]*//g' \
+#        | awk '{ print substr($0,1,1) substr($0,length,1) }'
+#done < "${SCRIPT_DIR}/example" | paste -sd+ | bc
+done < "${SCRIPT_DIR}/example"
+
+while read -r line; do
+    echo "${line}" \
+        | sed -e 's/one/1/g' \
+              -e 's/two/2/g' \
+              -e 's/three/3/g' \
+              -e 's/four/4/g' \
+              -e 's/five/5/g' \
+              -e 's/six/6/g' \
+              -e 's/seven/7/g' \
+              -e 's/eight/8/g' \
+              -e 's/nine/9/g' \
+              -e 's/[^0-9]*//g' \
+        | awk '{ print substr($0,1,1) substr($0,length,1) }'
+done < "${SCRIPT_DIR}/input" | paste -sd+ | bc
